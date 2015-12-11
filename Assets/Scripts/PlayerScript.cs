@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
 
@@ -15,10 +14,10 @@ public class PlayerScript : MonoBehaviour {
     private Rigidbody2D rb2d;
 
 	// Use this for initialization
-	void Awake () {
+	void Start () {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-	}
-	
+    }
+
 	// Update is called once per frame
 	void Update () {
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Platform"));
@@ -31,5 +30,9 @@ public class PlayerScript : MonoBehaviour {
             rb2d.AddForce(Vector2.up * jumpPower);
             jump = false;
         }
+
+        //if (Input.GetButtonDown(KeyCode.Mouse0)) {
+        //
+        //}
     }
 }
