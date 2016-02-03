@@ -2,7 +2,7 @@
 
 public class PlayerScript : MonoBehaviour {
 
-    [HideInInspector]
+    [System.NonSerialized]
     public bool jump = false;
 
     public float speed = 5f;
@@ -10,6 +10,7 @@ public class PlayerScript : MonoBehaviour {
     public Transform groundCheck;
 
     private bool grounded = false;
+    public GameObject zone;
 
     private Rigidbody2D rb2d;
 
@@ -31,8 +32,14 @@ public class PlayerScript : MonoBehaviour {
             jump = false;
         }
 
-        //if (Input.GetButtonDown(KeyCode.Mouse0)) {
-        //
-        //}
+        if (Input.GetButtonDown("Fire1")) {
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position, Mathf.Infinity, 1 << LayerMask.NameToLayer("Platform"));
+            // This is kind of cancer code so simplify somtimes pls.
+            if(raycastHit2D.point != Vector2.zero){
+                zone.transform.position = new Vector3(raycastHit2D.point.x, raycastHit2D.point.y, 0);
+            } else {
+                zone.transform.position = new Vector3(999, 999, 0);
+            }            
+        }
     }
 }
