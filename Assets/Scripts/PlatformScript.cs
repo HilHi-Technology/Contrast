@@ -5,6 +5,7 @@ public class PlatformScript : MonoBehaviour {
 
     public LayerMask mask;
     public GameObject SubColliderPrefab;
+    private List<GameObject> subColliders = new List<GameObject>();
 
 	void ZoneTrigger(GameObject zone) {
         Debug.Log("Triggered");
@@ -51,8 +52,10 @@ public class PlatformScript : MonoBehaviour {
             print("split");
             GameObject subCollider1 = Instantiate(SubColliderPrefab) as GameObject;
             subCollider1.transform.parent = gameObject.transform;
+            subColliders.Add(subCollider1);
             GameObject subCollider2 = Instantiate(SubColliderPrefab) as GameObject;
             subCollider2.transform.parent = gameObject.transform;
+            subColliders.Add(subCollider2);
             List<Vector2> colliderPoints1 = new List<Vector2>();
             List<Vector2> colliderPoints2 = new List<Vector2>();
             int i = 0;
@@ -84,10 +87,22 @@ public class PlatformScript : MonoBehaviour {
         {
             GameObject subCollider = Instantiate(SubColliderPrefab) as GameObject;
             subCollider.transform.parent = gameObject.transform;
+            subColliders.Add(subCollider);
             PolygonCollider2D polyCollider = subCollider.GetComponent<PolygonCollider2D>();
             polyCollider.points = pointsOfInterest.ToArray();
 
         }
+    }
+
+    void ZoneReset()
+    {
+        PolygonCollider2D collider2d = GetComponent<PolygonCollider2D>();
+        foreach (GameObject go in subColliders)
+        {
+            Destroy(go);
+        }
+        collider2d.enabled = true;
+        
     }
 
 }
