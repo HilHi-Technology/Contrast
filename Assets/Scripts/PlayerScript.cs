@@ -31,15 +31,5 @@ public class PlayerScript : MonoBehaviour {
             rb2d.AddForce(Vector2.up * jumpPower);
             jump = false;
         }
-
-        if (Input.GetButtonDown("Fire1")) {
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position, Mathf.Infinity, 1 << LayerMask.NameToLayer("Platform"));
-            // This is kind of cancer code so simplify somtimes pls.
-            if(raycastHit2D.point != Vector2.zero){
-                zone.transform.position = new Vector3(raycastHit2D.point.x, raycastHit2D.point.y, 0);
-            } else {
-                zone.transform.position = new Vector3(999, 999, 0);
-            }            
-        }
     }
 }

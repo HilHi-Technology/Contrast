@@ -47,6 +47,10 @@ public class PlatformScript : MonoBehaviour {
             }
         }
         collider2d.enabled = false;
+        foreach (Vector2 v in pointsOfInterest)
+        {
+            print(v.x + " " + v.y);
+        }
         if (pointsOfInterest.Count == 8)
         {
             print("split");
@@ -67,12 +71,11 @@ public class PlatformScript : MonoBehaviour {
                 {
                     if (intersectionsOfInterest.Contains(pointsOfInterest[nextIndex]))
                     {
-                        i++;
                         int targetIndex = i + 4;
                         while (colliderPoints2.Count < 4) 
                         {
-                            colliderPoints2.Add(pointsOfInterest[i]);
                             i++;
+                            colliderPoints2.Add(pointsOfInterest[i]);
                         }
                     }
                 }
