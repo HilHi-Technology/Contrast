@@ -19,7 +19,7 @@ public class ZoneScript : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) {
+        /*if (Input.GetButtonDown("Fire1")) {
             foreach (GameObject go in affectedObjects)
             {
                 go.SendMessage("ZoneReset");
@@ -44,8 +44,17 @@ public class ZoneScript : MonoBehaviour {
                 }
             }
             
-        }
+        }*/
         
+    }
+
+    void OnDestroy()
+    {
+        foreach (GameObject go in affectedObjects)
+        {
+            go.SendMessage("ZoneReset");
+        }
+        affectedObjects = new List<GameObject>();
     }
 
 }
