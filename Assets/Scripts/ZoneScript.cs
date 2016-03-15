@@ -8,17 +8,18 @@ public class ZoneScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		var gameobjects = GameObject.FindGameObjectsWithTag("Interactable");
+        // Find list of object that are interactable.
+		GameObject[] gameobjects = GameObject.FindGameObjectsWithTag("Interactable");
 		foreach (GameObject gameobject in gameobjects) {
 			if (GetComponent<Renderer>().bounds.Intersects(gameobject.GetComponent<Renderer>().bounds)) {
+                // For the objects that are interactable and touching the zone: 
         		gameobject.SendMessage("ZoneTrigger", gameObject);
                 affectedObjects.Add(gameobject);
     		}
 		}
 	}
 
-    void Update()
-    {
+    void Update() {
         /*if (Input.GetButtonDown("Fire1")) {
             foreach (GameObject go in affectedObjects)
             {
@@ -47,14 +48,12 @@ public class ZoneScript : MonoBehaviour {
         }*/
         
     }
-
-    void OnDestroy()
-    {
-        foreach (GameObject go in affectedObjects)
-        {
-            go.SendMessage("ZoneReset");
+    public void Destroy() {
+        foreach (GameObject obj in affectedObjects) {
+            obj.SendMessage("ZoneReset");
         }
         affectedObjects = new List<GameObject>();
+        Destroy(gameObject);
     }
 
 }
