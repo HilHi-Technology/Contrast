@@ -1,13 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ZoneScript : MonoBehaviour {
 
     private List<GameObject> affectedObjects = new List<GameObject>();
     public GameObject playerObject;
+    private int grenadeCounterInt;
+    public Text grenadeCounter; // Keeps track of the grenades used
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        grenadeCounter.text = "0";
+        grenadeCounterInt = 0;
 		var gameobjects = GameObject.FindGameObjectsWithTag("Interactable");
 		foreach (GameObject gameobject in gameobjects) {
 			if (GetComponent<Renderer>().bounds.Intersects(gameobject.GetComponent<Renderer>().bounds)) {
@@ -20,6 +25,13 @@ public class ZoneScript : MonoBehaviour {
     void Update()
     {
         if (Input.GetButtonDown("Fire1")) {
+
+            // Adds one to grenade counter
+
+            grenadeCounterInt++;
+            grenadeCounter.text = grenadeCounterInt.ToString();
+            print(grenadeCounter.text + " grenade");
+
             foreach (GameObject go in affectedObjects)
             {
                 go.SendMessage("ZoneReset");
