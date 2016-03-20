@@ -55,6 +55,7 @@ public class PlayerScript : MonoBehaviour {
             }
             // Drawing the line.
             LineRenderer line = instantiatedLine.GetComponent<LineRenderer>();
+            line.sortingOrder = 4;
             line.SetPositions(new Vector3[] {transform.position, target});
         }
         if (Input.GetButtonUp("Fire1")) {
