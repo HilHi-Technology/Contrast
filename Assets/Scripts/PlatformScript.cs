@@ -29,7 +29,8 @@ public class PlatformScript : MonoBehaviour {
             int nextIndex = i == 3 ? 0 : i + 1;
             RaycastHit2D raycast1 = Physics2D.Raycast(worldVertices[i], worldVertices[previousIndex] - worldVertices[i], Mathf.Infinity, mask);
             RaycastHit2D raycast2 = Physics2D.Raycast(worldVertices[i], worldVertices[nextIndex] - worldVertices[i], Mathf.Infinity, mask);
-            if (!(raycast1.fraction == 0 && raycast2.fraction == 0)) {
+            print(raycast1.fraction + " " + raycast2.fraction);
+            if (!((raycast1.fraction == 0 && raycast1.collider != null) && (raycast2.fraction == 0 && raycast2.collider != null))) {
                 if (raycast1.collider != null) {
                     Vector2 point = raycast1.point;
                     pointsOfInterest.Add(point);
@@ -46,9 +47,10 @@ public class PlatformScript : MonoBehaviour {
             }
         }
         
-        // foreach (Vector2 v in pointsOfInterest) {
-        //     print(v.x + " " + v.y);
-        // }
+        for (int i = 0; i < pointsOfInterest.Count - 1; i++)
+        {
+            Debug.DrawLine(pointsOfInterest[i], pointsOfInterest[i + 1], Color.yellow, 10.0f);
+        }
         if (pointsOfInterest.Count == 8) {
             // Cases where the zone would split the platform into 2.
             print("split");
@@ -90,11 +92,13 @@ public class PlatformScript : MonoBehaviour {
         }
     }
 
-    void ZoneReset() {
+    void ZoneReset()
+    {
         print("reset");
         PolygonCollider2D collider2d = GetComponent<PolygonCollider2D>();
         collider2d.enabled = true;
-        foreach (GameObject obj in subColliders) {
+        foreach (GameObject obj in subColliders)
+        {
             Destroy(obj);
         }
     }
