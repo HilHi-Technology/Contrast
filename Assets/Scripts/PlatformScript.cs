@@ -49,7 +49,7 @@ public class PlatformScript : MonoBehaviour {
         
         for (int i = 0; i < pointsOfInterest.Count - 1; i++)
         {
-            Debug.DrawLine(pointsOfInterest[i], pointsOfInterest[i + 1], Color.yellow, 10.0f);
+            //Debug.DrawLine(pointsOfInterest[i], pointsOfInterest[i + 1], Color.yellow, 10.0f);
         }
         if (pointsOfInterest.Count == 8) {
             // Cases where the zone would split the platform into 2.
