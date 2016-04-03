@@ -18,10 +18,17 @@ public class ZoneScript : MonoBehaviour {
                     zoneCornersWorld.Add(transform.TransformPoint(v));
                 }
                 List<Vector2> zoneCornersOfInterest = new List<Vector2>();
-                foreach (Vector3 v in zoneCornersWorld) {
-                    RaycastHit2D cornerRaycast = Physics2D.Raycast(v, transform.position - v, 0.1f, 1 << LayerMask.NameToLayer("Platform"));
+                List<int> cornerIndexes = new List<int>();
+                for (int i = 0; i < zoneCornersWorld.Count; i++) {
+                    RaycastHit2D cornerRaycast = Physics2D.Raycast(zoneCornersWorld[i], transform.position - zoneCornersWorld[i], 0.1f, 1 << LayerMask.NameToLayer("Platform"));
                     if (cornerRaycast.collider == gameobject.GetComponent<PolygonCollider2D>()) {
-                        zoneCornersOfInterest.Add(v);
+                        zoneCornersOfInterest.Add(zoneCornersWorld[i]);
+                        cornerIndexes.Add(i);
+                    }
+                }
+                if (cornerIndexes.Count > 1) {
+                    if (cornerIndexes[1] - cornerIndexes[0] > 1) {
+                        zoneCornersOfInterest.Reverse();
                     }
                 }
                 // For the objects that are interactable and touching the zone: 
