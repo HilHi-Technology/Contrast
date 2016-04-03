@@ -81,7 +81,7 @@ public class PlatformScript : MonoBehaviour {
             subCollider.transform.parent = gameObject.transform;
             subColliders.Add(subCollider);
             PolygonCollider2D polyCollider = subCollider.GetComponent<PolygonCollider2D>();
-            for (int i = 0; i < pointsOfInterest.Count; i++) {
+            for (int i = 1; i < pointsOfInterest.Count; i++) {
                 if (intersectionsOfInterest.Contains(pointsOfInterest[i])) {
                     foreach (Vector2 v in zoneCornersOfInterest) {
                         pointsOfInterest.Insert(i + 1, v);
