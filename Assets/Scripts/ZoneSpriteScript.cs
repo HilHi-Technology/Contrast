@@ -5,9 +5,14 @@ public class ZoneSpriteScript : MonoBehaviour {
     public float shakeRange;
     public GameObject shade;
     private int colorInt = 0;
+    
+    void Start () {
+        InvokeRepeating("EffectUpdate", 0, 0.03f);
+    }
+    
 	// Update is called once per frame
-	void Update () {
-        shade.transform.localPosition = transform.localPosition * 2;
+	void EffectUpdate () {
+        shade.transform.localPosition = transform.localPosition * 1f;
         float x = Random.value * shakeRange;
         float y = Random.value * shakeRange;
         transform.localPosition = new Vector2(x - shakeRange/2, y - shakeRange/2);
