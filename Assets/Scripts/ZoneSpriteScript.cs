@@ -12,10 +12,9 @@ public class ZoneSpriteScript : MonoBehaviour {
     
 	// Update is called once per frame
 	void EffectUpdate () {
-        shade.transform.localPosition = transform.localPosition * 1f;
         float x = Random.value * shakeRange;
         float y = Random.value * shakeRange;
-        transform.localPosition = new Vector2(x - shakeRange/2, y - shakeRange/2);
+        shade.transform.localPosition = new Vector2(x - shakeRange/2, y - shakeRange/2);
         SpriteRenderer shadeSprite = shade.GetComponent<SpriteRenderer>();
         if (shadeSprite.color != Color.white) {
             shadeSprite.color = Color.white;
