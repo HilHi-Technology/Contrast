@@ -7,7 +7,7 @@ public class PlatformScript : MonoBehaviour {
     public GameObject SubColliderPrefab;
     private List<GameObject> subColliders = new List<GameObject>();
 
-	void ZoneTrigger(GameObject zone) {
+	void ZoneTrigger(List<Vector2> zoneCornersOfInterest) {
         Debug.Log("Triggered");
         // Acquire the vertices from the platforms.
 		PolygonCollider2D collider2d = GetComponent<PolygonCollider2D> ();
@@ -29,7 +29,6 @@ public class PlatformScript : MonoBehaviour {
             int nextIndex = i == 3 ? 0 : i + 1;
             RaycastHit2D raycast1 = Physics2D.Raycast(worldVertices[i], worldVertices[previousIndex] - worldVertices[i], Mathf.Infinity, mask);
             RaycastHit2D raycast2 = Physics2D.Raycast(worldVertices[i], worldVertices[nextIndex] - worldVertices[i], Mathf.Infinity, mask);
-            print(raycast1.fraction + " " + raycast2.fraction);
             if (!((raycast1.fraction == 0 && raycast1.collider != null) && (raycast2.fraction == 0 && raycast2.collider != null))) {
                 if (raycast1.collider != null) {
                     Vector2 point = raycast1.point;
@@ -46,14 +45,9 @@ public class PlatformScript : MonoBehaviour {
                 }
             }
         }
-        
-        for (int i = 0; i < pointsOfInterest.Count - 1; i++)
-        {
-            //Debug.DrawLine(pointsOfInterest[i], pointsOfInterest[i + 1], Color.yellow, 10.0f);
-        }
+
         if (pointsOfInterest.Count == 8) {
             // Cases where the zone would split the platform into 2.
-            print("split");
             GameObject subCollider1 = Instantiate(SubColliderPrefab) as GameObject;
             subCollider1.transform.parent = gameObject.transform;
             subColliders.Add(subCollider1);
@@ -87,6 +81,19 @@ public class PlatformScript : MonoBehaviour {
             subCollider.transform.parent = gameObject.transform;
             subColliders.Add(subCollider);
             PolygonCollider2D polyCollider = subCollider.GetComponent<PolygonCollider2D>();
+            for (int i = 0; i < pointsOfInterest.Count; i++) {
+                if (intersectionsOfInterest.Contains(pointsOfInterest[i])) {
+                    foreach (Vector2 v in zoneCornersOfInterest) {
+                        pointsOfInterest.Insert(i + 1, v);
+                        print("ping " + i);
+                    }
+                    break;
+                }
+                print("ping");
+            }
+            foreach(Vector2 v in pointsOfInterest) {
+                print(v.x + " " + v.y);
+            }
             polyCollider.points = pointsOfInterest.ToArray();
 
         }
@@ -94,7 +101,6 @@ public class PlatformScript : MonoBehaviour {
 
     void ZoneReset()
     {
-        print("reset");
         PolygonCollider2D collider2d = GetComponent<PolygonCollider2D>();
         collider2d.enabled = true;
         foreach (GameObject obj in subColliders)
