@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ZoneSpriteScript : MonoBehaviour {
+public class ZoneEffectScript : MonoBehaviour {
     public float shakeRange;
     public GameObject shade;
     private int colorInt = 0;
