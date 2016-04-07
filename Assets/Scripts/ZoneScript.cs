@@ -28,7 +28,7 @@ public class ZoneScript : MonoBehaviour {
                 }
                 if (cornerIndexes.Count > 1) {
                     if (cornerIndexes[1] - cornerIndexes[0] > 1) {
-                        zoneCornersOfInterest.Reverse();
+                        zoneCornersOfInterest.Reverse();    
                     }
                 }
                 // For the objects that are interactable and touching the zone: 
