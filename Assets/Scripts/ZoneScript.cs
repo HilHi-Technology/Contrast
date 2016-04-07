@@ -7,7 +7,13 @@ public class ZoneScript : MonoBehaviour {
     public GameObject playerObject;
 
 	// Use this for initialization
-	void Start () {
+	void Update () {
+        // WARNING: Possible bottleneck. Zone reset contains a call to GetComponent, which shouldn't be call on an update basis.
+        foreach (GameObject obj in affectedObjects) {
+            obj.SendMessage("ZoneReset");
+        }
+        affectedObjects = new List<GameObject>();
+        
         // Find list of object that are interactable.
 		GameObject[] gameobjects = GameObject.FindGameObjectsWithTag("Interactable");
 		foreach (GameObject gameobject in gameobjects) {

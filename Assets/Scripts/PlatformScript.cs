@@ -8,7 +8,7 @@ public class PlatformScript : MonoBehaviour {
     private List<GameObject> subColliders = new List<GameObject>();
 
 	void ZoneTrigger(List<Vector2> zoneCornersOfInterest) {
-        Debug.Log("Triggered");
+        //print("Triggered");
         // Acquire the vertices from the platforms.
 		PolygonCollider2D collider2d = GetComponent<PolygonCollider2D> ();
         collider2d.enabled = false;
@@ -85,26 +85,25 @@ public class PlatformScript : MonoBehaviour {
                 if (intersectionsOfInterest.Contains(pointsOfInterest[i])) {
                     foreach (Vector2 v in zoneCornersOfInterest) {
                         pointsOfInterest.Insert(i + 1, v);
-                        print("ping " + i);
+                        //print("ping " + i);
                     }
                     break;
                 }
-                print("ping");
+                //print("ping");
             }
             foreach(Vector2 v in pointsOfInterest) {
-                print(v.x + " " + v.y);
+                //print(v.x + " " + v.y);
             }
             polyCollider.points = pointsOfInterest.ToArray();
 
         }
     }
 
-    void ZoneReset()
-    {
+    void ZoneReset() {
+        // WARNING: Possible bottleneck. GetComponent is slow and shouldn't be call on an update basis.
         PolygonCollider2D collider2d = GetComponent<PolygonCollider2D>();
         collider2d.enabled = true;
-        foreach (GameObject obj in subColliders)
-        {
+        foreach (GameObject obj in subColliders) {
             Destroy(obj);
         }
     }

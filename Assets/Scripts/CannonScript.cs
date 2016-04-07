@@ -28,7 +28,7 @@ public class CannonScript : MonoBehaviour {
             shootReady = false;
             GameObject cannonBallObj = Instantiate(cannonBall, shootSpot.transform.position, Quaternion.identity) as GameObject;
             cannonBallObj.GetComponent<Rigidbody2D>().AddForce(transform.right * -cannonBallSpeed);
-            cannonBallObj.GetComponent<Rigidbody2D>().AddTorque(1000);
+            //cannonBallObj.GetComponent<Rigidbody2D>().AddTorque(1000);
         }
 	}
 }
