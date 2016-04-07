@@ -1,9 +1,11 @@
 fileFormatVersion: 2
 guid: 9b89562bbca796645a07e4b2a08b6648
-timeCreated: 1459993881
+timeCreated: 1460064955
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Player_0
+    21300002: Player_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +40,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +51,47 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Player_0
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 80}
+        - {x: -80, y: 67}
+        - {x: -80, y: -78}
+        - {x: -73, y: -80}
+        - {x: 44, y: -80}
+        - {x: 79, y: -69}
+        - {x: 80, y: -57}
+        - {x: 80, y: 48}
+        - {x: 41, y: 80}
+    - name: Player_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 80}
+        - {x: -80, y: 67}
+        - {x: -80, y: -78}
+        - {x: -73, y: -80}
+        - {x: 44, y: -80}
+        - {x: 79, y: -69}
+        - {x: 80, y: -57}
+        - {x: 80, y: 48}
+        - {x: 41, y: 80}
     outline: []
   spritePackingTag: 
   userData: 
