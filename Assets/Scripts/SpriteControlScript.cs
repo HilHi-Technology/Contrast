@@ -3,8 +3,6 @@ using System.Collections;
 
 public class SpriteControlScript : MonoBehaviour {
     public float saturation;
-    public float RepeatX = 1;
-    public float RepeatY = 1;
     private Renderer renderer;
 	// Use this for initialization
 	void Start () {
@@ -14,7 +12,8 @@ public class SpriteControlScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	    renderer.material.SetFloat("_EffectAmount", saturation);
-        renderer.material.SetFloat("RepeatX", RepeatX);
-        renderer.material.SetFloat("RepeatY", RepeatY);
+        Vector3 scale = transform.lossyScale;
+        renderer.material.SetFloat("RepeatX", scale.x);
+        renderer.material.SetFloat("RepeatY", scale.y);
 	}
 }
