@@ -28,6 +28,13 @@ public class PlayerScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        if(Time.timeScale == 0) {
+            if(predicting){
+                Destroy(instantiatedLine);
+                predicting = false;
+            }
+            return;
+        }
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Platform"));
 
         // Horizontal movements
