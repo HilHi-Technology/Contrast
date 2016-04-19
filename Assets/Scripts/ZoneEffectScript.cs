@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class ZoneEffectScript : MonoBehaviour {
     public float shakeRange;
     public GameObject shade;
     private int colorInt = 0;
-    
+
     void Start () {
         InvokeRepeating("EffectUpdate", 0, 0.03f);
     }
-    
+
 	// Update is called once per frame
 	void EffectUpdate () {
         float x = Random.value * shakeRange;
