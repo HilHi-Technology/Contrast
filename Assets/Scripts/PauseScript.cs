@@ -20,7 +20,7 @@ public class PauseScript : MonoBehaviour {
         if(isPaused){
             print("pausing");
             Time.timeScale = 0;
-            pauseGUI.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(pauseGUIPosition.x, pauseGUIPosition.y, 2));
+            pauseGUI.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(pauseGUIPosition.x, pauseGUIPosition.y, 2));
         }
         else{
             Time.timeScale = 1;
