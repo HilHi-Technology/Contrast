@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class PauseScript : MonoBehaviour {
     
-    private bool isPaused = false;
+    [HideInInspector]
+    public bool isPaused = false;
     
     public Transform pauseGUI;  // GUI object associated with pausing.
     public Vector2 pauseGUIPosition;  // Position when paused in screenspace.
@@ -14,7 +14,7 @@ public class PauseScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if(Input.GetButtonDown("Pause")){
+	    if(Input.GetButtonDown("Pause") && GameObject.FindGameObjectsWithTag("Player").Length > 0){
             isPaused = !isPaused;
         }
         if(isPaused){
