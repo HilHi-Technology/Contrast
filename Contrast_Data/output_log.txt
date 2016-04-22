@@ -2,26 +2,62 @@ Initialize engine version: 5.3.4f1 (fdbb5133b820)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 960M  (ID=0x139b)
-    Vendor:   NVIDIA
-    VRAM:     1995 MB
+    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
+    Vendor:   Intel
+    VRAM:     1792 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Jonathan\Documents\GitHub\Contrast\Contrast_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Jonathan\Documents\GitHub\Contrast\Contrast_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Jonathan\Documents\GitHub\Contrast\Contrast_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Jonathan\Documents\GitHub\Contrast\Contrast_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Jonathan\Documents\GitHub\Contrast\Contrast_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Jonathan\Documents\GitHub\Contrast\Contrast_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Jonathan\Documents\GitHub\Contrast\Contrast_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Jonathan\Documents\GitHub\Contrast\Contrast_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.111 seconds
-Platform assembly: C:\Users\Jonathan\Documents\GitHub\Contrast\Contrast_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Jonathan\Documents\GitHub\Contrast\Contrast_Data\Managed\System.dll (this message is harmless)
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+Platform assembly: C:\Users\tinlun123\Documents\GitHub\Contrast\Contrast_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\tinlun123\Documents\GitHub\Contrast\Contrast_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\tinlun123\Documents\GitHub\Contrast\Contrast_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\tinlun123\Documents\GitHub\Contrast\Contrast_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\tinlun123\Documents\GitHub\Contrast\Contrast_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\tinlun123\Documents\GitHub\Contrast\Contrast_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\tinlun123\Documents\GitHub\Contrast\Contrast_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\tinlun123\Documents\GitHub\Contrast\Contrast_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.053 seconds
+Platform assembly: C:\Users\tinlun123\Documents\GitHub\Contrast\Contrast_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\tinlun123\Documents\GitHub\Contrast\Contrast_Data\Managed\System.dll (this message is harmless)
+desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.808195 ms
+UnloadTime: 0.641906 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.646461 ms
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 319.
+Total: 0.145829 ms (FindLiveObjects: 0.021810 ms CreateObjectMapping: 0.010691 ms MarkObjects: 0.100925 ms  DeleteObjects: 0.008125 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.246755 ms
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 407.
+Total: 0.165929 ms (FindLiveObjects: 0.029935 ms CreateObjectMapping: 0.010691 ms MarkObjects: 0.113755 ms  DeleteObjects: 0.011118 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.389591 ms
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 407.
+Total: 0.496504 ms (FindLiveObjects: 0.079543 ms CreateObjectMapping: 0.023948 ms MarkObjects: 0.342121 ms  DeleteObjects: 0.050462 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.348964 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 407.
+Total: 0.180041 ms (FindLiveObjects: 0.047041 ms CreateObjectMapping: 0.009836 ms MarkObjects: 0.118887 ms  DeleteObjects: 0.003421 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.341266 ms
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 407.
+Total: 0.407980 ms (FindLiveObjects: 0.057305 ms CreateObjectMapping: 0.031218 ms MarkObjects: 0.283533 ms  DeleteObjects: 0.034639 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.338700 ms
+
+Unloading 87 unused Assets to reduce memory usage. Loaded Objects now: 190.
+Total: 0.227938 ms (FindLiveObjects: 0.017106 ms CreateObjectMapping: 0.009836 ms MarkObjects: 0.129151 ms  DeleteObjects: 0.070990 ms)
+
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2a34 -> priority: 1 
-  Thread -> id: 2430 -> priority: 1 
+  Thread -> id: 270c -> priority: 1 
+  Thread -> id: 181c -> priority: 1 
