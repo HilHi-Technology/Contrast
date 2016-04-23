@@ -42,6 +42,7 @@ public class PlayerScript : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump") && grounded) {
             rb2d.AddForce(Vector2.up * jumpPower);
+            GetComponent<AudioSource>().Play();
             jump = false;
         }
 
